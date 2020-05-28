@@ -1,7 +1,7 @@
-package com.example.io;
+package comexampleio;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import orgjunitjupiterapiTest;
+import orgspringframeworkboottestcontextSpringBootTest;
 
 @SpringBootTest
 class IoApplicationTests {

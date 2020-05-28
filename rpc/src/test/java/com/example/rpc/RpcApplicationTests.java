@@ -1,7 +1,7 @@
-package com.example.rpc;
+package comexamplerpc;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import orgjunitjupiterapiTest;
+import orgspringframeworkboottestcontextSpringBootTest;
 
 @SpringBootTest
 class RpcApplicationTests {

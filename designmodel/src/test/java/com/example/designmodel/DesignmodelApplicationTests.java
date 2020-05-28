@@ -1,7 +1,7 @@
-package com.example.designmodel;
+package comexampledesignmodel;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import orgjunitjupiterapiTest;
+import orgspringframeworkboottestcontextSpringBootTest;
 
 @SpringBootTest
 class DesignmodelApplicationTests {

@@ -1,15 +1,15 @@
-package com.example.io.nio.netty;
+package comexampleionionetty;
 
-import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
+import ionettybootstrapBootstrap;
+import ionettychannelChannelFuture;
+import ionettychannelChannelInitializer;
+import ionettychannelChannelOption;
+import ionettychannelEventLoopGroup;
+import ionettychannelnioNioEventLoopGroup;
+import ionettychannelsocketSocketChannel;
+import ionettychannelsocketnioNioSocketChannel;
 
-import java.util.Scanner;
+import javautilScanner;
 
 public class Client implements Runnable {
     static ClientHandler client = new ClientHandler();
@@ -18,26 +18,26 @@ public class Client implements Runnable {
 
     @Override
     public void run() {
-        String host = "127.0.0.1";
+        String host = "127001";
         int port = 9090;
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
-            b.group(workerGroup);
-            b.channel(NioSocketChannel.class);
-            b.option(ChannelOption.SO_KEEPALIVE, true);
-            b.handler(new ChannelInitializer<SocketChannel>() {
+            bgroup(workerGroup);
+            bchannel(NioSocketChannelclass);
+            boption(ChannelOptionSO_KEEPALIVE, true);
+            bhandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) throws Exception {
-                    ch.pipeline().addLast(client);
+                    chpipeline()addLast(client);
                 }
             });
-            ChannelFuture f = b.connect(host, port).sync();
-            f.channel().closeFuture().sync();
+            ChannelFuture f = bconnect(host, port)sync();
+            fchannel()closeFuture()sync();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            eprintStackTrace();
         } finally {
-            workerGroup.shutdownGracefully();
+            workerGroupshutdownGracefully();
         }
     }
 
@@ -48,9 +48,9 @@ public class Client implements Runnable {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        new Thread(new Client()).start();
-        Scanner scanner = new Scanner(System.in);
-        while (client.sendMsg(scanner.nextLine())) ;
+        new Thread(new Client())start();
+        Scanner scanner = new Scanner(Systemin);
+        while (clientsendMsg(scannernextLine())) ;
     }
 
     /***
@@ -62,7 +62,7 @@ public class Client implements Runnable {
      * 服务器消息：26
      * 156158*458918+125615
      * 客户端发送消息：156158*458918+125615
-     * 服务器消息：7.1663842659E10
+     * 服务器消息：71663842659E10
      * 1895612+555+5+5+5+5+5+5+5-5*4/4
      * 客户端发送消息：1895612+555+5+5+5+5+5+5+5-5*4/4
      * 服务器消息：1896197

@@ -1,7 +1,7 @@
-package com.example.io.bio.me;
+package comexampleiobiome;
 
 
-import com.alibaba.fastjson.JSONObject;
+import comalibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;

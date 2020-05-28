@@ -10,6 +10,9 @@ import com.example.rpc.grpc.proto.UserCenterServiceGrpc;
 import io.grpc.Channel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * 客户端类
  */
@@ -30,5 +33,9 @@ public class Client {
         UserCenterServiceGrpc.UserCenterServiceBlockingStub blockingStub = UserCenterServiceGrpc.newBlockingStub(channel);
         InvokeResponse response = blockingStub.userCenter(request);
         System.out.println(response.getMsg());
+
+
+
+        Map map = new HashMap();
     }
 }

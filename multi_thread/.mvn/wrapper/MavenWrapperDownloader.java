@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-
 import javanet*;
 import javaio*;
 import javaniochannels*;
@@ -26,7 +25,7 @@ public class MavenWrapperDownloader {
      * Default URL to download the maven-wrapperjar from, if no 'downloadUrl' is provided
      */
     private static final String DEFAULT_DOWNLOAD_URL = "https://repomavenapacheorg/maven2/io/takari/maven-wrapper/"
-            + WRAPPER_VERSION + "/maven-wrapper-" + WRAPPER_VERSION + "jar";
+        + WRAPPER_VERSION + "/maven-wrapper-" + WRAPPER_VERSION + "jar";
 
     /**
      * Path to the maven-wrapperproperties file, which might contain a downloadUrl property to
@@ -55,7 +54,7 @@ public class MavenWrapperDownloader {
         // wrapperUrl parameter
         File mavenWrapperPropertyFile = new File(baseDirectory, MAVEN_WRAPPER_PROPERTIES_PATH);
         String url = DEFAULT_DOWNLOAD_URL;
-        if (mavenWrapperPropertyFileexists()) {
+        if(mavenWrapperPropertyFileexists()) {
             FileInputStream mavenWrapperPropertyFileInputStream = null;
             try {
                 mavenWrapperPropertyFileInputStream = new FileInputStream(mavenWrapperPropertyFile);
@@ -66,7 +65,7 @@ public class MavenWrapperDownloader {
                 Systemoutprintln("- ERROR loading '" + MAVEN_WRAPPER_PROPERTIES_PATH + "'");
             } finally {
                 try {
-                    if (mavenWrapperPropertyFileInputStream != null) {
+                    if(mavenWrapperPropertyFileInputStream != null) {
                         mavenWrapperPropertyFileInputStreamclose();
                     }
                 } catch (IOException e) {
@@ -77,8 +76,8 @@ public class MavenWrapperDownloader {
         Systemoutprintln("- Downloading from: " + url);
 
         File outputFile = new File(baseDirectorygetAbsolutePath(), MAVEN_WRAPPER_JAR_PATH);
-        if (!outputFilegetParentFile()exists()) {
-            if (!outputFilegetParentFile()mkdirs()) {
+        if(!outputFilegetParentFile()exists()) {
+            if(!outputFilegetParentFile()mkdirs()) {
                 Systemoutprintln(
                         "- ERROR creating output directory '" + outputFilegetParentFile()getAbsolutePath() + "'");
             }
@@ -108,10 +107,10 @@ public class MavenWrapperDownloader {
         }
         URL website = new URL(urlString);
         ReadableByteChannel rbc;
-        rbc = Channels.newChannel(website.openStream());
+        rbc = ChannelsnewChannel(websiteopenStream());
         FileOutputStream fos = new FileOutputStream(destination);
-        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-        fos.close();
+        fosgetChannel()transferFrom(rbc, 0, LongMAX_VALUE);
+        fosclose();
         rbc.close();
     }
 

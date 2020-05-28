@@ -1,4 +1,4 @@
-package com.example.mq.rabbitmq.server;
+package comexamplemqrabbitmqserver;
 
 public class DemoServer {
 

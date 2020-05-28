@@ -1,13 +1,13 @@
-package com.example.designmodel;
+package comexampledesignmodel;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import orgspringframeworkbootSpringApplication;
+import orgspringframeworkbootautoconfigureSpringBootApplication;
 
 @SpringBootApplication
 public class DesignmodelApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DesignmodelApplication.class, args);
+        SpringApplicationrun(DesignmodelApplicationclass, args);
 
     }
 

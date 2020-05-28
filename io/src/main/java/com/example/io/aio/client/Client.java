@@ -1,4 +1,4 @@
-package com.example.io.aio.client;
+package comexampleio.aio.client;
 
 import java.util.Scanner;
 

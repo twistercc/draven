@@ -1,19 +1,19 @@
-package com.example.io.nio.netty;
+package comexampleionionetty;
 
-import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
+import ionettybootstrapServerBootstrap;
+import ionettychannelChannelFuture;
+import ionettychannelChannelInitializer;
+import ionettychannelChannelOption;
+import ionettychannelEventLoopGroup;
+import ionettychannelnioNioEventLoopGroup;
+import ionettychannelsocketSocketChannel;
+import ionettychannelsocketnioNioServerSocketChannel;
 
 public class Server {
     private int port;
 
     public Server(int port) {
-        this.port = port;
+        thisport = port;
     }
 
     public void run() throws Exception {
@@ -21,32 +21,32 @@ public class Server {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
-                    .childOption(ChannelOption.SO_KEEPALIVE, true)
-                    .childHandler(new ChannelInitializer<SocketChannel>() {
+            bgroup(bossGroup, workerGroup)
+                    channel(NioServerSocketChannelclass)
+                    option(ChannelOptionSO_BACKLOG, 1024)
+                    childOption(ChannelOptionSO_KEEPALIVE, true)
+                    childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new ServerHandler());
+                            socketChannelpipeline()addLast(new ServerHandler());
                         }
                     });
-            ChannelFuture f = b.bind(port).sync();
-            System.out.println("服务器开启：" + port);
-            f.channel().closeFuture().sync();
+            ChannelFuture f = bbind(port)sync();
+            Systemoutprintln("服务器开启：" + port);
+            fchannel()closeFuture()sync();
         } finally {
-            workerGroup.shutdownGracefully();
-            bossGroup.shutdownGracefully();
+            workerGroupshutdownGracefully();
+            bossGroupshutdownGracefully();
         }
     }
 
     public static void main(String[] args) throws Exception {
         int port;
-        if (args.length > 0) {
-            port = Integer.parseInt(args[0]);
+        if (argslength > 0) {
+            port = IntegerparseInt(args[0]);
         } else {
             port = 9090;
         }
-        new Server(port).run();
+        new Server(port)run();
     }
 }

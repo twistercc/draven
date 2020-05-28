@@ -1,6 +1,6 @@
-package com.example.io.aio.client;
+package comexampleioaioclient;
 
-import java.io.IOException;
+import javaio.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;

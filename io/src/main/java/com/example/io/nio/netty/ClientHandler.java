@@ -1,11 +1,11 @@
-package com.example.io.nio.netty;
+package comexampleionionetty;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import ionettybufferByteBuf;
+import ionettybufferUnpooled;
+import ionettychannelChannelHandlerContext;
+import ionettychannelChannelInboundHandlerAdapter;
 
-import java.io.UnsupportedEncodingException;
+import javaioUnsupportedEncodingException;
 
 public class ClientHandler extends ChannelInboundHandlerAdapter {
     ChannelHandlerContext ctx;
@@ -15,16 +15,16 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        this.ctx = ctx;
+        thisctx = ctx;
     }
 
     public boolean sendMsg(String msg) {
-        System.out.println("客户端发送消息：" + msg);
-        byte[] req = msg.getBytes();
-        ByteBuf m = Unpooled.buffer(req.length);
-        m.writeBytes(req);
-        ctx.writeAndFlush(m);
-        return msg.equals("q") ? false : true;
+        Systemoutprintln("客户端发送消息：" + msg);
+        byte[] req = msggetBytes();
+        ByteBuf m = Unpooledbuffer(reqlength);
+        mwriteBytes(req);
+        ctxwriteAndFlush(m);
+        return msgequals("q") ? false : true;
     }
 
     /**
@@ -35,10 +35,10 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
         ByteBuf buf = (ByteBuf) msg;
-        byte[] req = new byte[buf.readableBytes()];
-        buf.readBytes(req);
+        byte[] req = new byte[bufreadableBytes()];
+        bufreadBytes(req);
         String body = new String(req, "utf-8");
-        System.out.println("收到服务器消息：" + body);
+        Systemoutprintln("收到服务器消息：" + body);
     }
 
     /**
@@ -46,7 +46,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        cause.printStackTrace();
-        ctx.close();
+        causeprintStackTrace();
+        ctxclose();
     }
 }
