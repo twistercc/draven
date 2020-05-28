@@ -1,111 +1,28 @@
-<?xml version="10" encoding="UTF-8"?>
-<project xmlns="http://mavenapacheorg/POM/400" xmlns:xsi="http://wwww3org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://mavenapacheorg/POM/400 https://mavenapacheorg/xsd/maven-400xsd">
-    <modelVersion>400</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>orgspringframeworkboot</groupId>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>217RELEASE</version>
-        <relativePath/>
+        <version>2.3.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>comexample</groupId>
-    <artifactId>drvaen</artifactId>
+    <artifactId>draven</artifactId>
     <packaging>war</packaging>
     <version>001-SNAPSHOT</version>
-    <name>drvaen</name>
+    <name>draven</name>
     <description>Demo project for Spring Boot</description>
 
 
     <properties>
         <jacksonjsonversion>293</jacksonjsonversion>
-        <mavencompilersource>1.8</maven.compiler.source>
+<!--        <mavencompilersource>1.8</maven.compiler.source>-->
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-
-
-<!--    <dependencies>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-web</artifactId>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter</artifactId>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.mongodb</groupId>-->
-<!--            <artifactId>mongodb-driver</artifactId>-->
-<!--            <version>3.8.2</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; spring-data-mongodb &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.data</groupId>-->
-<!--            <artifactId>spring-data-mongodb</artifactId>-->
-<!--            <version>2.1.1.RELEASE</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.mongodb</groupId>-->
-<!--                    <artifactId>mongo-java-driver</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>fastjson</artifactId>-->
-<!--            <version>1.2.47</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/io.projectreactor/reactor-core &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.projectreactor</groupId>-->
-<!--            <artifactId>reactor-core</artifactId>-->
-<!--            <version>3.2.11.RELEASE</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-lang3</artifactId>-->
-<!--            <version>3.9</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.httpcomponents</groupId>-->
-<!--            <artifactId>httpasyncclient</artifactId>-->
-<!--            <version>${httpasyncclient.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>commons-logging</artifactId>-->
-<!--                    <groupId>commons-logging</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.httpcomponents</groupId>-->
-<!--            <artifactId>httpclient</artifactId>-->
-<!--            <version>${httpclient.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>commons-logging</artifactId>-->
-<!--                    <groupId>commons-logging</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>io.netty</groupId>-->
-<!--            <artifactId>netty-all</artifactId>-->
-<!--            <version>4.1.25.Final</version>-->
-<!--        </dependency>-->
-
-<!--    </dependencies>-->
 
     <build>
         <plugins>

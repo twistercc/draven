@@ -1,9 +1,6 @@
 package com.example.rpc.grpc;
 
 
-//import com.ymm.usercenter.proto.InvokeRequest;
-//import com.ymm.usercenter.proto.InvokeResponse;
-//import com.ymm.usercenter.proto.UserCenterServiceGrpc;
 import com.example.rpc.grpc.proto.InvokeRequest;
 import com.example.rpc.grpc.proto.InvokeResponse;
 import com.example.rpc.grpc.proto.UserCenterServiceGrpc;
