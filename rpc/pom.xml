@@ -1,11 +1,11 @@
-<?xml version="10" encoding="UTF-8"?>
-<project xmlns="http://mavenapacheorg/POM/400" xmlns:xsi="http://wwww3org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://mavenapacheorg/POM/400 https://mavenapacheorg/xsd/maven-400xsd">
-    <modelVersion>400</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>orgspringframeworkboot</groupId>
+        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>230RELEASE</version>
+        <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>comexample</groupId>
@@ -20,12 +20,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>orgspringframeworkboot</groupId>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>orgspringframeworkboot</groupId>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
@@ -37,14 +37,14 @@
         </dependency>
 
         <dependency>
-            <groupId>iogrpc</groupId>
+            <groupId>io.grpc</groupId>
             <artifactId>grpc-all</artifactId>
-            <version>150</version>
+            <version>1.5.0</version>
         </dependency>
         <dependency>
-            <groupId>comgoogleprotobuf</groupId>
+            <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>330</version>
+            <version>3.3.0</version>
         </dependency>
 
     </dependencies>
@@ -59,7 +59,7 @@
 
         <extensions>
             <extension>
-                <groupId>krmotd.maven</groupId>
+                <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
                 <version>1.4.1.Final</version>
             </extension>

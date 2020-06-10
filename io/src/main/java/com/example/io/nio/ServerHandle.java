@@ -1,4 +1,4 @@
-package comexampleio.nio;
+package com.example.io.nio;
 
 import com.example.io.Calculator;
 

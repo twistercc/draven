@@ -1,33 +1,33 @@
-package comexampleionionetty;
+package com.example.io.nio.netty;
 
-import comexampleioCalculator;
-import ionettybufferByteBuf;
-import ionettybufferUnpooled;
-import ionettychannelChannelHandlerContext;
-import ionettychannelChannelInboundHandlerAdapter;
+import com.example.io.Calculator;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
-import javaioUnsupportedEncodingException;
+import java.io.UnsupportedEncodingException;
 
 public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
         ByteBuf in = (ByteBuf) msg;
-        byte[] req = new byte[inreadableBytes()];
-        inreadBytes(req);
+        byte[] req = new byte[in.readableBytes()];
+        in.readBytes(req);
         String body = new String(req, "utf-8");
-        Systemoutprintln("收到客户端消息:" + body);
+        System.out.println("收到客户端消息:" + body);
         String calrResult = null;
         try {
-            calrResult = CalculatorInstancecal(body)toString();
+            calrResult = Calculator.Instance.cal(body).toString();
         } catch (Exception e) {
-            calrResult = "错误的表达式：" + egetMessage();
+            calrResult = "错误的表达式：" + e.getMessage();
         }
-        ctxwrite(UnpooledcopiedBuffer(calrResultgetBytes()));
+        ctx.write(Unpooled.copiedBuffer(calrResult.getBytes()));
     }
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        ctxflush();
+        ctx.flush();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        causeprintStackTrace();
-        ctxclose();
+        cause.printStackTrace();
+        ctx.close();
     }
 }

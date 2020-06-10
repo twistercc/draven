@@ -1,6 +1,6 @@
-package comexampleionio;
+package com.example.io.nio;
 
-import javautilScanner;
+import java.util.Scanner;
 
 /**
  * 测试方法
@@ -13,12 +13,12 @@ public class Test {
     @SuppressWarnings("resource")
     public static void main(String[] args) throws Exception {
         //运行服务器
-        Serverstart();
+        Server.start();
         //避免客户端先于服务器启动前执行代码
-        Threadsleep(100);
+        Thread.sleep(100);
         //运行客户端
-        Clientstart();
-        while (ClientsendMsg(new Scanner(Systemin)nextLine())) ;
+        Client.start();
+        while (Client.sendMsg(new Scanner(System.in).nextLine())) ;
     }
 }
 

@@ -1,9 +1,9 @@
-package comexampleioaioserver;
+package com.example.io.aio.server;
 
-import javaioIOException;
-import javanetInetSocketAddress;
-import javaniochannelsAsynchronousServerSocketChannel;
-import javautilconcurrentCountDownLatch;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.util.concurrent.CountDownLatch;
 
 public class AsyncServerHandler implements Runnable {
     public CountDownLatch latch;
@@ -12,12 +12,12 @@ public class AsyncServerHandler implements Runnable {
     public AsyncServerHandler(int port) {
         try {
             //创建服务端通道
-            channel = AsynchronousServerSocketChannelopen();
+            channel = AsynchronousServerSocketChannel.open();
             //绑定端口
-            channelbind(new InetSocketAddress(port));
-            Systemoutprintln("服务器已启动，端口号：" + port);
+            channel.bind(new InetSocketAddress(port));
+            System.out.println("服务器已启动，端口号：" + port);
         } catch (IOException e) {
-            eprintStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -30,11 +30,11 @@ public class AsyncServerHandler implements Runnable {
         //生成环境就不需要担心这个问题，以为服务端是不会退出的
         latch = new CountDownLatch(1);
         //用于接收客户端的连接
-        channelaccept(this, new AcceptHandler());
+        channel.accept(this, new AcceptHandler());
         try {
-            latchawait();
+            latch.await();
         } catch (InterruptedException e) {
-            eprintStackTrace();
+            e.printStackTrace();
         }
     }
 }

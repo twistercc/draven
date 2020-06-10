@@ -1,41 +1,41 @@
-package comexampleioaioclient;
+package com.example.io.aio.client;
 
-import javaioIOException;
-import javaioUnsupportedEncodingException;
-import javanioByteBuffer;
-import javaniochannelsAsynchronousSocketChannel;
-import javaniochannelsCompletionHandler;
-import javautilconcurrentCountDownLatch;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
+import java.util.concurrent.CountDownLatch;
 
 public class ClientReadHandler implements CompletionHandler<Integer, ByteBuffer> {
     private AsynchronousSocketChannel clientChannel;
     private CountDownLatch latch;
 
     public ClientReadHandler(AsynchronousSocketChannel clientChannel, CountDownLatch latch) {
-        thisclientChannel = clientChannel;
-        thislatch = latch;
+        this.clientChannel = clientChannel;
+        this.latch = latch;
     }
 
     @Override
     public void completed(Integer result, ByteBuffer buffer) {
-        bufferflip();
-        byte[] bytes = new byte[bufferremaining()];
-        bufferget(bytes);
+        buffer.flip();
+        byte[] bytes = new byte[buffer.remaining()];
+        buffer.get(bytes);
         String body;
         try {
             body = new String(bytes, "UTF-8");
-            Systemoutprintln("客户端收到结果:" + body);
+            System.out.println("客户端收到结果:" + body);
         } catch (UnsupportedEncodingException e) {
-            eprintStackTrace();
+            e.printStackTrace();
         }
     }
 
     @Override
     public void failed(Throwable exc, ByteBuffer attachment) {
-        Systemerrprintln("数据读取失败");
+        System.out.println("数据读取失败");
         try {
-            clientChannelclose();
-            latchcountDown();
+            clientChannel.close();
+            latch.countDown();
         } catch (IOException e) {
         }
     }
