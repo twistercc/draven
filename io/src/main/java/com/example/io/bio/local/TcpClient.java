@@ -1,4 +1,4 @@
-package com.example.io.bio.me;
+package com.example.io.bio.local;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,12 +25,13 @@ public class TcpClient {
                         System.out.println("客户端连接成功");
                         PrintWriter pw = new PrintWriter(socket.getOutputStream());
                         InputStream inputStream = socket.getInputStream();
-                        byte[] buffer = new byte[1024];
-                        int len = -1;
-                        while ((len = inputStream.read(buffer)) != -1) {
-                            String data = new String(buffer, 0, len);
-                            System.out.println("收到服务器的数据------------:" + data);
-                        }
+                        byte[] lengthBuf = new byte[4];
+                        inputStream.read(lengthBuf, 0, 4);
+                        int length = bytesToIntLittle(lengthBuf, 0);
+                        byte[] buffer = new byte[length];
+                        inputStream.read(buffer, 0, length);
+                        String data = new String(buffer);
+                        System.out.println("收到服务器的数据------------:" + data);
                         System.out.println("客户端断开连接");
                         pw.close();
                     } catch (Exception EE) {
@@ -63,6 +64,21 @@ public class TcpClient {
                 }
             }).start();
         }
+    }
+
+    /**
+     * 以小端方式，读取前4个字节表示的长度
+     * @param src
+     * @param offset
+     * @return
+     */
+    public static int bytesToIntLittle(byte[] src, int offset) {
+        int value;
+        value = (int) ((src[offset] & 0xFF)
+                | ((src[offset + 1] & 0xFF) << 8)
+                | ((src[offset + 2] & 0xFF) << 16)
+                | ((src[offset + 3] & 0xFF) << 24));
+        return value;
     }
 
     public static void main(String[] args) {
