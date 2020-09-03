@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 /**
+ * 设置发送指定长度的字节数据
  * Created by wentao.cui on 2020/3/20.
  */
 

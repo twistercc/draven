@@ -8,8 +8,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * 测试lock可重入锁
  */
 
-public class TestReenTrantLock {
-    private Lock lock = new ReentrantLock(); // 可重入锁
+public class ReenTrantLockTest1 {
+    private Lock lock = new ReentrantLock();  // 默认为非公平锁
+//    private Lock lock2 = new ReentrantLock(true);// 公平锁
+
 
 
     public void myThread1(){
@@ -39,7 +41,7 @@ public class TestReenTrantLock {
     }
 
     public static void main(String[] args) {
-        TestReenTrantLock  testReenTrantLock = new TestReenTrantLock();
+        ReenTrantLockTest1 testReenTrantLock = new ReenTrantLockTest1();
 
         Thread t1 = new Thread(()->{
             for (int i = 0; i < 10; i++) {

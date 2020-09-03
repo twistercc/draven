@@ -19,12 +19,15 @@ public class SingletonDubleCheck {
         if(instance == null){
             synchronized (SingletonDubleCheck.class){
                 if(instance == null){
-                    instance = getInstance();
+                    instance = new SingletonDubleCheck();
                 }
             }
         }
         return instance;
     }
 
+    public static void main(String[] args) {
+        new SingletonDubleCheck();
+    }
 
 }

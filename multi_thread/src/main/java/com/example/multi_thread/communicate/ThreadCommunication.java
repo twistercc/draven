@@ -23,7 +23,6 @@ public class ThreadCommunication {
     public static void main(String[] args) {
 
         Thread threadA = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -32,14 +31,15 @@ public class ThreadCommunication {
                     num = 1;
                     //初始化完参数后释放两个 permit
                     semaphore.release(2);
+                    System.out.println("A \t"+Thread.currentThread().getName() + "获取到 num 的值为：" + num);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
+
         Thread threadB = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -48,11 +48,11 @@ public class ThreadCommunication {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + "获取到 num 的值为：" + num);
+                System.out.println("B \t"+Thread.currentThread().getName() + "获取到 num 的值为：" + num);
             }
         });
+
         Thread threadC = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -61,9 +61,11 @@ public class ThreadCommunication {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + "获取到 num 的值为：" + num);
+                System.out.println("C \t"+Thread.currentThread().getName() + "获取到 num 的值为：" + num);
             }
         });
+
+
         //同时开启 3 个线程
         threadA.start();
         threadB.start();
